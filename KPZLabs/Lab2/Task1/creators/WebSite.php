@@ -1,0 +1,20 @@
+<?php
+
+namespace Task1\creators;
+
+use Task1\subscriptions\DomesticSubscription;
+use Task1\subscriptions\EducationalSubscription;
+use Task1\subscriptions\PremiumSubscription;
+
+class WebSite extends SubscriptionCreator
+{
+    public function createSubscription(string $type): \Task1\subscriptions\Subscription
+    {
+        return match ($type) {
+            'domestic' => new DomesticSubscription(),
+            'educational' => new EducationalSubscription(),
+            'premium' => new PremiumSubscription(),
+            default => throw new \Exception("Unknown subscription type")
+        };
+    }
+}
