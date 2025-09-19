@@ -4,7 +4,7 @@ namespace zoo;
 
 class Food
 {
-    public $name, $quantity; // quantity in kg
+    public $name, $quantity;
 
     public function __construct($name, $quantity)
     {
